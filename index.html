@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Natasha Chatbot - Intro</title>
+  <style>
+    :root {
+      --primary-color: #0ff;
+      --bg-color: #0a0a0a;
+      --text-color: #fff;
+      --accent-color: #09f;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-main);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Loading Screen */
+    .loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .loader {
+      border: 8px solid #111;
+      border-top: 8px solid var(--primary-color);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Intro Content */
+    .intro-container {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      border: 2px solid var(--accent-color);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 20px var(--accent-color);
+      max-width: 600px;
+      margin: 100px auto;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-color);
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .typing {
+      font-size: 1.1rem;
+      min-height: 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--primary-color);
+      animation: typing 4s steps(40, end), blink .75s step-end infinite;
+    }
+
+    .start-btn {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      color: var(--text-color);
+      background: var(--accent-color);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .start-btn:hover {
+      background: #06c;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .typing {
+        font-size: 1rem;
+      }
+
+      .start-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .intro-container {
+        margin-top: 60px;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loader-wrapper" id="loader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Introduction Container -->
+  <div class="intro-container" id="intro">
+    <img src="Natasha.jpg" alt="Natasha Avatar" class="avatar">
+    <h1 class="title">Welcome to Natasha Virtual Assistent</h1>
+    <div class="typing">Your Intelligent Voice & web task assistent</div>
+    <button id="btnstart" class="start-btn" onclick="startChat()">Get start now</button>
+  </div>
+<audio src="./setup/1.mp3" id="starta" preload="auto"></audio>
+  <script>
+    // Hide loader and show intro after delay
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("intro").style.display = "block";
+      }, 3000); // 3 second loading
+    });
+
+    // function startChat() {
+    //   window.location.href = "chatbot.html"; // Replace with actual chatbot URL
+    // }
+const startbtn = document.getElementById("btnstart");
+const audio = document.getElementById("starta");
+startbtn.addEventListener("click", () =>{
+    audio .play();
+    setTimeout(() => {
+        window.open('https://harshadteli.github.io/natashaassistentaitechnology');
+    }, audio .duration * 1000);
+
+});
+     
+
+  </script>
+  <script src="prevent.js"></script>
+
+</body>
+</html>
